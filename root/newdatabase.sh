@@ -1,7 +1,18 @@
 #!/bin/sh
 
-dbuser=root
-dbpwd=<dbpassword>
+if [[ -z "$dbuser" ]] 
+then
+	echo "dbuser env var not set."
+	echo "Aborting."
+	exit 1
+fi
+
+if [[ -z "$dbpwd" ]]
+then
+	echo "dbpwd env var not set."
+	echo "Aborting."
+	exit 1
+fi
 
 execmysql()
 {
